@@ -1,4 +1,5 @@
-import { Productitem } from "./ProductItem";
+import { useMemo } from "react";
+import { ProductItem } from "./ProductItem";
 
 interface SearchResultsProps {
   results: Array<{
@@ -9,10 +10,20 @@ interface SearchResultsProps {
 }
 
 export function SearchResults({ results }: SearchResultsProps) {
+  const totalPrice = useMemo(() => {
+    return results.reduce((total, product) => {
+      return total + product.price;
+    }, 0);
+  }, [results]);
+
   return (
     <div>
+      {totalPrice.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      })}
       {results.map((product) => {
-        return <Productitem key={product.id} product={product} />;
+        return <ProductItem key={product.id} product={product} />;
       })}
     </div>
   );
