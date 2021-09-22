@@ -27,26 +27,20 @@ export default function Home() {
   }
 
   return (
-    <div>
-      <Head>
-        <title>Performando apps com Reactjs</title>
-      </Head>
+    <main>
+      <p>Performando apps com Reactjs</p>
+      <h1>Search app</h1>
 
-      <main>
-        <p>Performando apps com Reactjs</p>
-        <h1>Search app</h1>
+      <form onSubmit={handleSearch}>
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button type="submit">Buscar</button>
+      </form>
 
-        <form onSubmit={handleSearch}>
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <button type="submit">Buscar</button>
-        </form>
-
-        <SearchResults results={results} />
-      </main>
-    </div>
+      <SearchResults results={results} />
+    </main>
   );
 }
