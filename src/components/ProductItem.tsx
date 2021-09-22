@@ -1,5 +1,3 @@
-import styles from "../styles/Home.module.css";
-
 interface ProductitemProps {
   product: {
     id: number;
@@ -10,7 +8,7 @@ interface ProductitemProps {
 
 export function Productitem({ product }: ProductitemProps) {
   return (
-    <div className={styles.card}>
+    <div>
       {product.title} -{" "}
       {product.price.toLocaleString("pt-BR", {
         style: "currency",

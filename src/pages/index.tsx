@@ -1,8 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
 import { FormEvent, useState } from "react";
+
 import { SearchResults } from "../components/SearchResults";
-import styles from "../styles/Home.module.css";
 
 interface Product {
   id: number;
@@ -34,14 +33,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>Performando apps com Reactjs</p>
+        <p>Performando apps com Reactjs</p>
         <h1>Search app</h1>
 
-        <form onSubmit={handleSearch} className={styles.card}>
+        <form onSubmit={handleSearch}>
           <input
             type="text"
             value={search}
